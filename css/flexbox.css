@@ -1,0 +1,202 @@
+ /* CABECERA */  
+
+.cabecera__container{
+    display: flex;
+    justify-content: space-between;  /* Que los elementos hijo no se salgan */ 
+    align-items: center; /* que los elemento hijo se centren */
+    position: fixed; /* Para que el encabezado se quede fijo cuando bajemos */
+    top: 0; /* Para que el encabezado se ubique al inicio */   
+}
+
+
+.cabecera__buscar__item{   /* El buscador está oculto */   
+    display: none;
+}
+
+
+/* MENU*/
+.menu__container{
+    position: fixed;  /*Para que el menú en movil se quede quito mientras se hace scroll*/ 
+    bottom: 0%;    /* Le hemos puesto botom para que se ponga abajo */ 
+    height: 75px; /* Para reducir el tamaño del contenedor */ 
+    width: 100%;  /* Para que ocupe todo el tamaño de mi body  */ 
+
+}
+
+
+.menu__lista{
+    display: flex;
+    justify-content: space-around; /* para que las listas tengan un espaciADO */
+    height: 100%;  
+}
+
+
+.menu__lista li{
+    align-self: center;  /* centramos las listas dentro del contenedor */
+}
+
+
+.menu__itens{
+    display: flex; /* Usamos flex para que los item de las lista se ponga uno de encima del otro */ 
+    flex-direction: column; /* que el flex agregado sea con columna */
+    gap: 5px; /* que tenga un espaciado */  
+}
+
+.menu__lista:nth-child(2),/* seleccionamos las listas con nth-child */
+.menu__lista:nth-child(3),   
+.menu__lista:nth-child(4){
+    display: none;     /* las ocultamos */
+}
+
+
+
+
+
+
+
+
+/* Seccion superior */ 
+
+.superior__seccion__container{
+display: flex;
+align-items: center;
+white-space: nowrap; /* Para que el textode los botones no salte la linea */ 
+overflow: scroll;  /* Para que tenga la barra de desplazamiento */ 
+gap: 15px; /* Para que tengan un espacio entre ellos */ 
+
+}
+
+
+
+/* Seccion de videos*/ 
+
+.videos__item{  
+    height: 303px; 
+    width: 280px;
+    flex-grow: 1; /* para eliminar el espacio del costado y se proporcionar */
+}
+
+
+.videos__container{
+    display: flex; /* Para que los videos se pongan a lado*/ 
+    flex-wrap: wrap; /* y se distribuyan por todo el contenedor*/
+    gap:10px ; /*Para que los videos tengan un separado*/ 
+    
+}
+
+ /* DESAFIO DESCRIPCIÓN DE LOS VIDEOS */ 
+
+ .descripcion-video {
+    margin-top: 1rem;
+    display: flex;
+    align-items: start; 
+    
+}
+
+.descripcion-video img {
+    margin-right: 1rem; 
+    flex-shrink: 0;  /*  Evita que la imagen se reduzca */
+    
+}
+
+.detalles__video {
+    flex-direction: column;
+    text-align:left;
+
+}
+
+.detalles__video h3{
+    margin-bottom: 10px;
+}
+
+
+
+ /* RODAPIE */  
+.rodapie__container{
+    display: flex;  /* Ponemos que sea flexible */ 
+   /*     flex-direction: column; /* y que se ponga en una columna */
+   /* flex-wrap: wrap; /* El valor wrap siver para que esa columna se divida en varias de acuerdo al espacio*/  
+
+   flex-flow: column wrap;   /* Para reducir código esta propiedad realiza la misma funcion se flex-direction y flex wrap en una */ 
+}
+
+
+
+@media (min-width:834px){  /* Siempre y cuando sea menor de 834 px, si lo supera se va mostrar */   
+
+
+   /* CABECERA */
+    .cabecera__buscar__item{
+        display: block;  /* Por eso se pasa a block, para que se muestre */   
+    }
+
+
+
+
+     /* RODAPIE */
+    .rodapie__container{
+        justify-content: space-between;  /* Para que las columnas ocupen el mismo espacio */   
+    }
+
+
+ /* MENU TABLET */
+    .menu__container {
+        left: 0;
+        height: auto;
+        width: 74px;
+        top: 80px;
+    }
+    
+    .menu__lista {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 15px;
+        gap: 33px;
+    }
+}
+
+@media (min-width:1440px ){
+
+    .menu__container{
+        width: 239px;
+        overflow: scroll;    /* activamos la barra de navegación  */
+    }
+
+    .menu__lista:nth-child(2),/* seleccionamos las listas con nth-child */
+    .menu__lista:nth-child(3),   
+    .menu__lista:nth-child(4){
+     display: flex;     /* lo mostramos con flex, pero aún así no nos dejaba ver se debe a que menu lista ocupaba un height de 100, entonce lo vamos a cambiar */
+    }
+
+
+    .menu__lista{
+        height: auto;     /* aquí lo cambiamos a auto para que se vea */
+        padding: 20px 17px 20px 15px;    /* para que no se aplique el efecto al todo el contenedor  */
+        gap: 15px;  /* reducimos los espacios para esten un poco más juntos cada item   */
+    }
+
+
+    .menu__lista:nth-child(3){
+
+        flex-direction: column-reverse;  /* Lo que hace es revertir la posición de los elementos  */
+    }
+
+    .menu__itens{
+        flex-direction: row;  /* para que el texto y el ícono se pongan uno del lado del otro  */
+        gap: 15px;  /* Para que tengan un espacio entre el ícono y texto*/
+        align-items: center;  /* centramos el ícono y el texto  */
+    }
+
+    .videojuegos{    /* USAMOS ORDER PARA ORDENAR POR NUMERO  */
+        order: 3;
+    }
+    .peliculas{
+        order: 2;
+    }
+
+    .premium{
+        order:3;
+    }
+}
+
+
